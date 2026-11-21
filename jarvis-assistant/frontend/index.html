@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>J.A.R.V.I.S. // Personal AI</title>
 
     <!-- Custom Glowing AI Core Browser Tab Icon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='50%25' stop-color='%23818cf8'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2305070d'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='url(%23g)' stroke-width='3' opacity='0.5'/%3E%3Cpath d='M32 14 L36.5 27.5 L50 32 L36.5 36.5 L32 50 L27.5 36.5 L14 32 L27.5 27.5 Z' fill='url(%23g)'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2338bdf8'/%3E%3Cstop offset='50%25' stop-color='%23818cf8'/%3E%3Cstop offset='100%25' stop-color='%23a855f7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='16' fill='%2305070d'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='url(%23g)' stroke-width='3' opacity='0.5'/%3E%3Cpath d='M32 14 L36.5 27.5 L50 32 L36.5 36.5 L32 50 L27.5 36.5 L14 32 L27.5 27.5 Z' fill='url(%23g)'/%3E%3C/svg%3E">
 
     <!-- Broad, Flagship AI Fonts (Sora + DM Sans) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-base: #03050a;
@@ -31,7 +35,11 @@
             --amber: #f59e0b;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             background-color: var(--bg-base);
@@ -60,7 +68,9 @@
             transition: background 0.8s ease;
         }
 
-        header, .workspace, .dock-wrapper {
+        header,
+        .workspace,
+        .dock-wrapper {
             position: relative;
             z-index: 2;
         }
@@ -97,7 +107,11 @@
             box-shadow: 0 0 20px rgba(56, 189, 248, 0.18);
         }
 
-        .brand-logo svg { width: 17px; height: 17px; color: #7dd3fc; }
+        .brand-logo svg {
+            width: 17px;
+            height: 17px;
+            color: #7dd3fc;
+        }
 
         .brand-text {
             display: flex;
@@ -214,11 +228,20 @@
             animation: popIn 0.2s ease;
         }
 
-        .settings-popover.open { display: flex; }
+        .settings-popover.open {
+            display: flex;
+        }
 
         @keyframes popIn {
-            from { opacity: 0; transform: translateY(-6px) scale(0.98); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            from {
+                opacity: 0;
+                transform: translateY(-6px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .setting-group {
@@ -353,7 +376,9 @@
             transition: border-color 0.2s ease;
         }
 
-        .metric-card:hover { border-color: var(--border-bright); }
+        .metric-card:hover {
+            border-color: var(--border-bright);
+        }
 
         .metric-top {
             display: flex;
@@ -362,7 +387,11 @@
             margin-bottom: 8px;
         }
 
-        .metric-name { font-size: 12px; font-weight: 500; color: var(--text-secondary); }
+        .metric-name {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
 
         .metric-value {
             font-family: 'Sora', sans-serif;
@@ -393,9 +422,20 @@
             transition: width 0.55s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .fill-cpu { background: linear-gradient(90deg, #3b82f6, #38bdf8); box-shadow: 0 0 10px rgba(56, 189, 248, 0.45); }
-        .fill-gpu { background: linear-gradient(90deg, #059669, #34d399); box-shadow: 0 0 10px rgba(52, 211, 153, 0.4); }
-        .fill-ram { background: linear-gradient(90deg, #d97706, #fbbf24); box-shadow: 0 0 10px rgba(251, 191, 36, 0.4); }
+        .fill-cpu {
+            background: linear-gradient(90deg, #3b82f6, #38bdf8);
+            box-shadow: 0 0 10px rgba(56, 189, 248, 0.45);
+        }
+
+        .fill-gpu {
+            background: linear-gradient(90deg, #059669, #34d399);
+            box-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
+        }
+
+        .fill-ram {
+            background: linear-gradient(90deg, #d97706, #fbbf24);
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+        }
 
         .sidebar-footer {
             margin-top: auto;
@@ -469,8 +509,13 @@
             transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
         }
 
-        .orb-stage:hover { transform: scale(1.03); }
-        .orb-stage:active { transform: scale(0.97); }
+        .orb-stage:hover {
+            transform: scale(1.03);
+        }
+
+        .orb-stage:active {
+            transform: scale(0.97);
+        }
 
         #liveCanvas {
             position: absolute;
@@ -535,7 +580,10 @@
             transition: color 0.3s ease;
         }
 
-        .live-caption.muted-caption { color: var(--text-muted); font-size: 14px; }
+        .live-caption.muted-caption {
+            color: var(--text-muted);
+            font-size: 14px;
+        }
 
         .quick-actions {
             margin-top: 16px;
@@ -576,9 +624,18 @@
             padding-right: 4px;
         }
 
-        .chat-stream::-webkit-scrollbar { width: 4px; }
-        .chat-stream::-webkit-scrollbar-track { background: transparent; }
-        .chat-stream::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.12); border-radius: 999px; }
+        .chat-stream::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .chat-stream::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .chat-stream::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 999px;
+        }
 
         .msg-row {
             display: flex;
@@ -587,8 +644,15 @@
         }
 
         @keyframes slideUp {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .msg-sys {
@@ -652,8 +716,13 @@
             transition: opacity 0.2s ease, color 0.2s ease;
         }
 
-        .msg-jarvis:hover .copy-btn { opacity: 1; }
-        .copy-btn:hover { color: var(--text-primary); }
+        .msg-jarvis:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .copy-btn:hover {
+            color: var(--text-primary);
+        }
 
         /* === FLOATING COMMAND DOCK === */
         .dock-wrapper {
@@ -693,7 +762,9 @@
             outline: none;
         }
 
-        input[type="text"]::placeholder { color: var(--text-muted); }
+        input[type="text"]::placeholder {
+            color: var(--text-muted);
+        }
 
         .btn-circle {
             width: 38px;
@@ -737,8 +808,496 @@
             box-shadow: 0 6px 22px rgba(56, 189, 248, 0.45);
             filter: brightness(1.06);
         }
+
+        /* =========================================
+   RESPONSIVE DESIGN - J.A.R.V.I.S.
+   ========================================= */
+
+        /* Large laptops and smaller desktops */
+        @media screen and (max-width: 1200px) {
+            body {
+                padding: 14px;
+            }
+
+            .workspace {
+                grid-template-columns: 220px 1fr 300px;
+                gap: 12px;
+            }
+
+            .side-panel {
+                padding: 14px;
+            }
+
+            .orb-stage {
+                width: 280px;
+                height: 280px;
+            }
+
+            #liveCanvas {
+                width: 280px;
+                height: 280px;
+            }
+
+            .live-caption {
+                font-size: 15px;
+            }
+
+            .quick-actions {
+                max-width: 450px;
+            }
+        }
+
+        /* Tablets and smaller laptops */
+        @media screen and (max-width: 992px) {
+            body {
+                height: 100vh;
+                min-height: 100vh;
+                overflow-y: auto;
+                padding: 12px;
+            }
+
+            header {
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 12px;
+            }
+
+            .header-actions {
+                flex-wrap: wrap;
+                justify-content: flex-end;
+            }
+
+            .workspace {
+                grid-template-columns: 200px 1fr;
+                grid-template-rows: minmax(400px, auto) 320px;
+                overflow: visible;
+                flex: none;
+            }
+
+            .workspace>.side-panel:first-child {
+                grid-column: 1;
+                grid-row: 1;
+            }
+
+            .center-stage {
+                grid-column: 2;
+                grid-row: 1;
+                padding: 10px;
+            }
+
+            .workspace>.side-panel:last-child {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                min-height: 300px;
+            }
+
+            .orb-stage {
+                width: 260px;
+                height: 260px;
+            }
+
+            #liveCanvas {
+                width: 260px;
+                height: 260px;
+            }
+
+            .quick-actions {
+                gap: 6px;
+            }
+
+            .quick-pill {
+                font-size: 11px;
+                padding: 7px 10px;
+            }
+
+            .dock-wrapper {
+                position: sticky;
+                bottom: 0;
+                padding: 10px 0;
+                background: var(--bg-base);
+            }
+
+            .settings-popover {
+                top: 90px;
+                right: 12px;
+            }
+
+            body.zen-mode .workspace {
+                grid-template-columns: 0px 1fr;
+            }
+        }
+
+        /* Mobile landscape and large phones */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 10px;
+                overflow-y: auto;
+            }
+
+            header {
+                border-radius: 14px;
+                padding: 10px;
+            }
+
+            .brand {
+                gap: 8px;
+            }
+
+            h1 {
+                font-size: 15px;
+                letter-spacing: 2px;
+            }
+
+            .live-indicator {
+                font-size: 9px;
+                padding: 4px 7px;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+                gap: 5px;
+            }
+
+            .nav-btn {
+                padding: 7px 9px;
+                font-size: 10px;
+            }
+
+            #clock {
+                font-size: 10px;
+                padding: 7px;
+            }
+
+            .workspace {
+                display: flex;
+                flex-direction: column;
+                gap: 14px;
+                overflow: visible;
+                margin: 12px 0;
+            }
+
+            .side-panel {
+                width: 100%;
+                border-radius: 16px;
+            }
+
+            .workspace>.side-panel:first-child {
+                order: 2;
+            }
+
+            .center-stage {
+                order: 1;
+                min-height: 400px;
+                padding: 15px 5px;
+            }
+
+            .workspace>.side-panel:last-child {
+                order: 3;
+                min-height: 300px;
+                height: 350px;
+            }
+
+            .orb-stage {
+                width: 250px;
+                height: 250px;
+            }
+
+            #liveCanvas {
+                width: 250px;
+                height: 250px;
+            }
+
+            .live-caption {
+                font-size: 14px;
+                max-width: 95%;
+            }
+
+            .quick-actions {
+                max-width: 100%;
+            }
+
+            .metrics-stack {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 8px;
+            }
+
+            .metric-card {
+                padding: 10px;
+            }
+
+            .metric-value {
+                font-size: 16px;
+            }
+
+            .sidebar-footer {
+                margin-top: 15px;
+            }
+
+            .dock-wrapper {
+                position: sticky;
+                bottom: 0;
+                z-index: 10;
+                padding: 8px 0;
+                background: var(--bg-base);
+            }
+
+            .command-bar {
+                padding: 6px 7px 6px 14px;
+                gap: 6px;
+            }
+
+            input[type="text"] {
+                font-size: 12px;
+                min-width: 0;
+            }
+
+            .btn-send {
+                padding: 10px 13px;
+                font-size: 11px;
+            }
+
+            .btn-circle {
+                width: 34px;
+                height: 34px;
+                flex-shrink: 0;
+            }
+
+            .settings-popover {
+                top: 110px;
+                right: 10px;
+                width: min(300px, calc(100vw - 20px));
+            }
+        }
+
+        /* Small mobile phones */
+        @media screen and (max-width: 480px) {
+            body {
+                padding: 8px;
+            }
+
+            header {
+                padding: 9px;
+                gap: 10px;
+            }
+
+            .brand-logo {
+                width: 28px;
+                height: 28px;
+            }
+
+            h1 {
+                font-size: 13px;
+                letter-spacing: 1.5px;
+            }
+
+            .brand-text {
+                gap: 6px;
+            }
+
+            .live-indicator {
+                font-size: 8px;
+                padding: 3px 6px;
+            }
+
+            .header-actions {
+                display: grid;
+                grid-template-columns: repeat(4, minmax(0, 1fr));
+                gap: 5px;
+            }
+
+            .nav-btn {
+                justify-content: center;
+                padding: 8px 4px;
+                font-size: 9px;
+                gap: 3px;
+                min-width: 0;
+            }
+
+            #clock {
+                grid-column: 1 / -1;
+                text-align: center;
+                width: 100%;
+            }
+
+            .workspace {
+                gap: 12px;
+            }
+
+            .center-stage {
+                min-height: 350px;
+            }
+
+            .orb-stage {
+                width: 220px;
+                height: 220px;
+            }
+
+            #liveCanvas {
+                width: 220px;
+                height: 220px;
+            }
+
+            .orb-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            .orb-label {
+                font-size: 9px;
+                letter-spacing: 2px;
+            }
+
+            .status-badge {
+                font-size: 10px;
+                padding: 6px 13px;
+            }
+
+            .live-caption {
+                font-size: 13px;
+                min-height: 42px;
+            }
+
+            .quick-actions {
+                gap: 6px;
+            }
+
+            .quick-pill {
+                font-size: 10px;
+                padding: 7px 9px;
+            }
+
+            .metrics-stack {
+                grid-template-columns: 1fr;
+            }
+
+            .panel-title {
+                font-size: 12px;
+            }
+
+            .chat-stream {
+                gap: 10px;
+            }
+
+            .msg-you,
+            .msg-jarvis {
+                font-size: 12px;
+            }
+
+            .command-bar {
+                padding-left: 11px;
+                gap: 5px;
+            }
+
+            .btn-send {
+                padding: 10px 11px;
+                gap: 4px;
+            }
+
+            .btn-send svg {
+                width: 12px;
+            }
+
+            .btn-circle {
+                width: 32px;
+                height: 32px;
+            }
+
+            .settings-popover {
+                top: 105px;
+                right: 8px;
+            }
+        }
+
+        /* Extra small phones */
+        @media screen and (max-width: 360px) {
+            .nav-btn {
+                font-size: 8px;
+                padding: 7px 2px;
+            }
+
+            .orb-stage {
+                width: 190px;
+                height: 190px;
+            }
+
+            #liveCanvas {
+                width: 190px;
+                height: 190px;
+            }
+
+            .quick-pill {
+                font-size: 9px;
+                padding: 6px 7px;
+            }
+
+            .command-bar {
+                gap: 4px;
+            }
+
+            input[type="text"] {
+                font-size: 11px;
+            }
+
+            .btn-send {
+                padding: 9px;
+            }
+        }
+
+        /* Landscape mobile optimization */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                overflow-y: auto;
+            }
+
+            .workspace {
+                display: grid;
+                grid-template-columns: 180px 1fr;
+                overflow: visible;
+            }
+
+            .center-stage {
+                min-height: 300px;
+            }
+
+            .orb-stage,
+            #liveCanvas {
+                width: 190px;
+                height: 190px;
+            }
+
+            .workspace>.side-panel:last-child {
+                grid-column: 1 / -1;
+                min-height: 250px;
+            }
+        }
+
+        /* Prevent accidental horizontal overflow */
+        @media screen {
+
+            html,
+            body {
+                max-width: 100%;
+            }
+
+            *,
+            *::before,
+            *::after {
+                box-sizing: border-box;
+            }
+
+            img,
+            canvas,
+            svg {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
+
 <body onload="initJarvisSession()">
 
     <div class="aurora-backdrop"></div>
@@ -747,8 +1306,9 @@
     <header>
         <div class="brand">
             <div class="brand-logo">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 3l1.9 5.8L20 10.7l-6.1 1.9L12 18.5l-1.9-5.9L4 10.7l6.1-1.9L12 3z"/>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M12 3l1.9 5.8L20 10.7l-6.1 1.9L12 18.5l-1.9-5.9L4 10.7l6.1-1.9L12 3z" />
                 </svg>
             </div>
             <div class="brand-text">
@@ -758,32 +1318,44 @@
         </div>
 
         <div class="header-actions">
-            <button id="liveModeBtn" class="nav-btn" onclick="toggleLiveMode()" title="Continuous hands-free conversation (L)">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M2 10v3"/><path d="M6 6v11"/><path d="M10 3v18"/><path d="M14 8v7"/><path d="M18 5v13"/><path d="M22 10v3"/>
+            <button id="liveModeBtn" class="nav-btn" onclick="toggleLiveMode()"
+                title="Continuous hands-free conversation (L)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 10v3" />
+                    <path d="M6 6v11" />
+                    <path d="M10 3v18" />
+                    <path d="M14 8v7" />
+                    <path d="M18 5v13" />
+                    <path d="M22 10v3" />
                 </svg>
                 <span id="liveModeLabel">Go Live</span>
             </button>
 
             <button id="zenBtn" class="nav-btn" onclick="toggleZenMode()" title="Full-screen focus mode">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
                 </svg>
                 <span>Focus</span>
             </button>
 
             <button id="muteBtn" class="nav-btn" onclick="toggleMute()" title="Mute or Unmute Voice">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
-                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
                 </svg>
                 <span id="muteLabel">Voice On</span>
             </button>
 
             <button id="settingsBtn" class="nav-btn" onclick="toggleSettings()" title="Voice Studio Settings">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="3" />
+                    <path
+                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9c.26.604.852.997 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
                 </svg>
             </button>
 
@@ -800,7 +1372,8 @@
         </div>
         <div class="setting-group">
             <label class="setting-label"><span>Speech Speed</span><span id="rateVal">1.05x</span></label>
-            <input type="range" id="rateSlider" min="0.8" max="1.4" step="0.05" value="1.05" oninput="updateRate(this.value)">
+            <input type="range" id="rateSlider" min="0.8" max="1.4" step="0.05" value="1.05"
+                oninput="updateRate(this.value)">
         </div>
     </div>
 
@@ -820,9 +1393,12 @@
                         <span id="cpuVal" class="metric-value">0%</span>
                     </div>
                     <svg class="sparkline-svg" viewBox="0 0 100 22" preserveAspectRatio="none">
-                        <polyline id="cpuSpark" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" points="0,22 100,22"/>
+                        <polyline id="cpuSpark" fill="none" stroke="#38bdf8" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" points="0,22 100,22" />
                     </svg>
-                    <div class="gauge-track"><div id="cpuBar" class="gauge-fill fill-cpu"></div></div>
+                    <div class="gauge-track">
+                        <div id="cpuBar" class="gauge-fill fill-cpu"></div>
+                    </div>
                 </div>
 
                 <div class="metric-card">
@@ -831,9 +1407,12 @@
                         <span id="gpuVal" class="metric-value">0%</span>
                     </div>
                     <svg class="sparkline-svg" viewBox="0 0 100 22" preserveAspectRatio="none">
-                        <polyline id="gpuSpark" fill="none" stroke="#34d399" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" points="0,22 100,22"/>
+                        <polyline id="gpuSpark" fill="none" stroke="#34d399" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" points="0,22 100,22" />
                     </svg>
-                    <div class="gauge-track"><div id="gpuBar" class="gauge-fill fill-gpu"></div></div>
+                    <div class="gauge-track">
+                        <div id="gpuBar" class="gauge-fill fill-gpu"></div>
+                    </div>
                 </div>
 
                 <div class="metric-card">
@@ -842,9 +1421,12 @@
                         <span id="ramVal" class="metric-value">0%</span>
                     </div>
                     <svg class="sparkline-svg" viewBox="0 0 100 22" preserveAspectRatio="none">
-                        <polyline id="ramSpark" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" points="0,22 100,22"/>
+                        <polyline id="ramSpark" fill="none" stroke="#fbbf24" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" points="0,22 100,22" />
                     </svg>
-                    <div class="gauge-track"><div id="ramBar" class="gauge-fill fill-ram"></div></div>
+                    <div class="gauge-track">
+                        <div id="ramBar" class="gauge-fill fill-ram"></div>
+                    </div>
                 </div>
             </div>
 
@@ -855,7 +1437,8 @@
                     <span>Stop <kbd>Esc</kbd></span>
                 </div>
                 <button class="btn-end" onclick="endSession()">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
                         <rect x="6" y="6" width="12" height="12" rx="2"></rect>
                     </svg>
                     End Conversation
@@ -868,22 +1451,26 @@
             <div id="orbStage" class="orb-stage" onclick="handleOrbClick()" title="Tap or press Space to speak">
                 <canvas id="liveCanvas" width="640" height="640"></canvas>
                 <div class="orb-hud-center">
-                    <svg class="orb-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                        <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                        <line x1="12" y1="19" x2="12" y2="23"/>
-                        <line x1="8" y1="23" x2="16" y2="23"/>
+                    <svg class="orb-icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                        <line x1="12" y1="19" x2="12" y2="23" />
+                        <line x1="8" y1="23" x2="16" y2="23" />
                     </svg>
                     <span id="coreLabel" class="orb-label">TAP TO TALK</span>
                 </div>
             </div>
 
             <div id="statusBadge" class="status-badge">Standby • Ready</div>
-            <div id="liveCaption" class="live-caption muted-caption">Tap the orb or click Go Live for hands-free voice chat.</div>
+            <div id="liveCaption" class="live-caption muted-caption">Tap the orb or click Go Live for hands-free voice
+                chat.</div>
 
             <div class="quick-actions">
-                <button class="quick-pill" onclick="sendQuery('Check my system diagnostics')">⚡ System Diagnostics</button>
-                <button class="quick-pill" onclick="sendQuery('What is the current date and time?')">🕒 Time & Date</button>
+                <button class="quick-pill" onclick="sendQuery('Check my system diagnostics')">⚡ System
+                    Diagnostics</button>
+                <button class="quick-pill" onclick="sendQuery('What is the current date and time?')">🕒 Time &
+                    Date</button>
                 <button class="quick-pill" onclick="sendQuery('Open YouTube')">▶ Open YouTube</button>
                 <button class="quick-pill" onclick="sendQuery('Give me a quick productivity tip')">✨ Quick Tip</button>
             </div>
@@ -909,18 +1496,20 @@
         <div class="command-bar">
             <input type="text" id="userInput" placeholder="Ask JARVIS anything in English..." autofocus>
             <button class="btn-circle" onclick="handleOrbClick()" title="Voice Input (Space)">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                    <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                    <line x1="12" y1="19" x2="12" y2="23"/>
-                    <line x1="8" y1="23" x2="16" y2="23"/>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                    <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                    <line x1="12" y1="19" x2="12" y2="23" />
+                    <line x1="8" y1="23" x2="16" y2="23" />
                 </svg>
             </button>
             <button class="btn-send" onclick="sendQuery()">
                 <span>Send</span>
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="22" y1="2" x2="11" y2="13"/>
-                    <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
                 </svg>
             </button>
         </div>
@@ -980,11 +1569,11 @@
         const W = canvas.width, H = canvas.height, CX = W / 2, CY = H / 2;
 
         const themes = {
-            ready:     { r: 56,  g: 189, b: 248, speed: 0.018, amp: 5  },
-            listening: { r: 16,  g: 185, b: 129, speed: 0.052, amp: 14 },
-            thinking:  { r: 168, g: 85,  b: 247, speed: 0.088, amp: 11 },
-            speaking:  { r: 244, g: 63,  b: 94,  speed: 0.072, amp: 20 },
-            error:     { r: 244, g: 63,  b: 94,  speed: 0.015, amp: 3  }
+            ready: { r: 56, g: 189, b: 248, speed: 0.018, amp: 5 },
+            listening: { r: 16, g: 185, b: 129, speed: 0.052, amp: 14 },
+            thinking: { r: 168, g: 85, b: 247, speed: 0.088, amp: 11 },
+            speaking: { r: 244, g: 63, b: 94, speed: 0.072, amp: 20 },
+            error: { r: 244, g: 63, b: 94, speed: 0.015, amp: 3 }
         };
 
         let curC = { r: 56, g: 189, b: 248 };
@@ -1149,7 +1738,7 @@
                 document.getElementById('ramVal').innerText = d.ram + '%';
                 document.getElementById('ramBar').style.width = d.ram + '%';
                 ramHist.push(d.ram); ramHist.shift(); drawSpark('ramSpark', ramHist);
-            } catch (e) {}
+            } catch (e) { }
         }
         fetchTelemetry();
         setInterval(fetchTelemetry, 2500);
@@ -1200,7 +1789,7 @@
             const blob = new Blob([transcriptLog.join('\n\n')], { type: 'text/plain' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = `JARVIS_Session_${new Date().toISOString().slice(0,10)}.txt`;
+            a.download = `JARVIS_Session_${new Date().toISOString().slice(0, 10)}.txt`;
             a.click();
         }
 
@@ -1304,7 +1893,7 @@
             liveMode = false;
             document.getElementById('liveModeBtn').classList.remove('live-active');
             document.getElementById('liveModeLabel').innerText = 'Go Live';
-            if (activeRecognition) { try { activeRecognition.stop(); } catch (e) {} }
+            if (activeRecognition) { try { activeRecognition.stop(); } catch (e) { } }
             window.speechSynthesis.cancel();
             const closing = "Wrapping up our session, Sir.";
             logActivity('JARVIS', closing);
@@ -1328,16 +1917,16 @@
             if (!englishVoices.length) populateVoices();
             const idx = document.getElementById('voiceSelect').value;
             const chosen = englishVoices[idx] ||
-                           englishVoices.find(v => v.lang === 'en-US') ||
-                           englishVoices.find(v => v.lang === 'en-GB') ||
-                           englishVoices[0];
+                englishVoices.find(v => v.lang === 'en-US') ||
+                englishVoices.find(v => v.lang === 'en-GB') ||
+                englishVoices[0];
 
             if (chosen) utterance.voice = chosen;
             utterance.lang = 'en-US';
             utterance.pitch = 0.92;
             utterance.rate = speechRate;
 
-            utterance.onend = utterance.onerror = function() {
+            utterance.onend = utterance.onerror = function () {
                 setState('ready');
                 if (liveMode && allowAutoListen) {
                     setTimeout(() => {
@@ -1452,11 +2041,12 @@
                 toggleLiveMode();
             } else if (e.code === 'Escape') {
                 window.speechSynthesis.cancel();
-                if (activeRecognition) { try { activeRecognition.stop(); } catch (err) {} }
+                if (activeRecognition) { try { activeRecognition.stop(); } catch (err) { } }
                 document.getElementById('settingsPopover').classList.remove('open');
                 setState('ready');
             }
         });
     </script>
 </body>
+
 </html>
